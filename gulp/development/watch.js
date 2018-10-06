@@ -18,6 +18,6 @@ gulp.task('watch', done => {
   // styles
   gulp.watch(config.directories.src.styles + '/**/*.scss', gulp.series('styles'))
   // Scripts
-  gulp.watch(config.directories.src.scripts + '/**/*.js', gulp.series('scripts', reload))
+  gulp.watch(config.directories.src.js + '/**/*.js', gulp.series('scripts', reload))
   done()
 })

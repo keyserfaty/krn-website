@@ -1,17 +1,36 @@
-// Welcome to our main file!
-// we are using Webpack and ES6
-// feel free to use imports and exports
-// as well as ES6 code
+import { Node } from './helpers'
 
-// Try to make your whole code work via exporting
-// a single function to get Hot Module Replacement
-// just like app.init()
-// from the good ol'days
+const url = 'https://api.krn.sh/posts/en'
 
-const colors = [ 'pink', 'red', 'blue' ]
-const moColors = ['yellow', 'papayawhip']
+fetch(url)
+  .then(function (response) {
+    return response.json()
+  })
+  .then(function (response) {
+    const PostsList = document.querySelector('.post-list')
 
-const allTheColors = [ ...colors, ...moColors ]
-allTheColors.map(color => console.log(`The color is ${color}`))
+    Object.keys(response)
+      .map(key => {
+        const post = Post(response[key])
+        PostsList.appendChild(post)
+      })
+  })
 
-// Happy coding from Pixel2HTML
+const Post = props => {
+  const { title, virtuals, firstPublishedAtDay, firstPublishedAtMonth, uniqueSlug } = props
+
+  return (
+    Node('div', { class: 'post' },
+      Node('div', { class: 'date' },
+        Node('h1', { class: 'day' }, firstPublishedAtDay),
+        Node('h2', { class: 'month' }, firstPublishedAtMonth)
+      ),
+      Node('div', { class: 'content' },
+        Node('h1', { class: 'title' },
+          Node('a', { href: `https://medium.com/@keyserfaty/${uniqueSlug}`, target: 'blank' }, title)
+        ),
+        Node('div', { class: 'reading-time' }, `${Math.round(virtuals.readingTime)} min read`)
+      )
+    )
+  )
+}
