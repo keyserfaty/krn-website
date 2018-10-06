@@ -1,0 +1,21 @@
+:global {
+  @import 'abstracts/_index';
+  @import 'base/_index';
+  @import 'components/_index';
+  @import 'screens/_index';
+}
+
+@font-face {
+  font-family: 'Salvo';
+  src: url('../fonts/Salvo.otf');
+}
+
+@font-face {
+  font-family: 'SalvoBold';
+  src: url('../fonts/SalvoBold.otf');
+}
+
+@font-face {
+  font-family: 'UntitledSerifWeb-Bold';
+  src: url('../fonts/UntitledSerifWeb-Bold.ttf');
+}

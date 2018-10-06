@@ -1,0 +1,26 @@
+// =======================================
+// =            Base Layout              =
+// =======================================
+
+@include flexGrid;
+
+.container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 rem(24);
+
+  @include breakpoint(sm) {
+    padding: 0 rem(58);
+  }
+
+  @include breakpoint(md) {
+    padding: 0 rem(74);
+  }
+
+  @include breakpoint(lg) {
+    max-width: rem(944);
+    padding: 0 ($column-gutter / 2);
+  }
+}

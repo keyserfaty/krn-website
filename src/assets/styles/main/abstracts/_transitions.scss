@@ -1,0 +1,9 @@
+// =======================================
+// =            Transitions              =
+// =======================================
+
+$trns-duration: .225s;
+$trns-bezier: cubic-bezier(0,0,0,2.41);
+
+$transition: all $trns-duration ease;
+$transition-bezier: all $trns-duration $trns-bezier;

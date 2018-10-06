@@ -1,0 +1,124 @@
+// =======================================
+// =            Mixins                   =
+// =======================================
+
+// Breakpoints
+@mixin breakpoint($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media (min-width: map-get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  }
+
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+    + "Available breakpoints are: #{map-keys($breakpoints)}.";
+  }
+}
+
+// Function to get col percent
+@function get-col-percent($column-num) {
+  @return $column-num / $columns * 100%;
+}
+
+// Flex grid
+@mixin flexGrid($gutter: $column-gutter, $total: $columns, $sizes: $breakpoints) {
+  .row {
+    display: flex;
+    flex-flow: row wrap;
+    margin-left: -($column-gutter / 2);
+    margin-right: -($column-gutter / 2);
+  }
+
+  [class^="col-"],
+  [class*=" col-"] {
+    padding: 0 $column-gutter / 2;
+  }
+
+  @each $key, $value in $breakpoints {
+    @for $i from 1 through $columns {
+      .col-#{$key}-#{$i} {
+        flex: 0 0 100%;
+        @include breakpoint($key) {
+          max-width: #{$i / $columns * 100%};
+          flex-basis: #{$i / $columns * 100%};
+        }
+      }
+      .col-#{$key}-offset-#{$i}{
+        @include breakpoint($key) {
+          margin-left: get-col-percent($i);
+        }
+      }
+    }
+  }
+}
+
+// Some fonts need to smooooooth
+@mixin font-smooth{
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+// To debug easily
+@mixin debug {
+  @at-root {
+    * {
+      outline: 1px solid red;
+    }
+  }
+}
+
+// IE Target
+@mixin ieTarget {
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    @content;
+  }
+}
+
+// Placeholder
+@mixin placeholder() {
+  input::-webkit-input-placeholder {@content}
+  input:-moz-placeholder           {@content}
+  input::-moz-placeholder          {@content}
+  input:-ms-input-placeholder      {@content}
+}
+
+// Recet input
+@mixin reset-input {
+  appearance: none;
+  border: none;
+  border-radius: 0;
+  background: none;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  line-height: inherit;
+  color: inherit;
+  outline: none;
+}
+
+// Recent Button
+@mixin reset-btn {
+  appearance: none;
+  border: none;
+  border-radius: 0;
+  background: none;
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  line-height: inherit;
+  color: inherit;
+  cursor: pointer;
+  outline: none;
+}
+
+// Ellipsis
+@mixin ellipsis {
+  display: inline-block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-wrap: normal;
+}

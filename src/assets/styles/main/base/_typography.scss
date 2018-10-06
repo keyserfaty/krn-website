@@ -1,0 +1,70 @@
+// =======================================
+// =          Base Typography            =
+// =======================================
+
+html {
+  min-height: 100%;
+  position: relative;
+  background-color: $white;
+  color: $black;
+  font-family: $font-text;
+  font-size: rem(18);
+  color: rgba(0,0,0,0.60);
+  letter-spacing: 1px;
+  line-height: 36px;
+}
+
+h1, h2, h4 {
+  margin: 0;
+}
+
+body {
+  font: inherit;
+  line-height: inherit;
+  @include font-smooth;
+}
+
+input,
+textarea {
+  font-family: inherit;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: $transition;
+}
+
+
+h1 {
+  font-family: $font-title;
+  font-size: rem(24);
+  line-height: rem(36);
+  color: $black;
+
+  @include breakpoint(md) {
+    font-size: rem(36);
+    line-height: rem(40);
+  }
+}
+
+h2 {
+  font-family: $font-title;
+  font-size: rem(11);
+  line-height: rem(14);
+  color: $black;
+
+  @include breakpoint(md) {
+    font-size: rem(16);
+    line-height: rem(20);
+  }
+}
+
+h4 {
+  font-family: $font-title-small;
+  font-size: rem(9);
+  line-height: rem(13);
+  color: rgba(0,0,0,0.60);
+  letter-spacing: rem(1.64);
+  text-transform: uppercase;
+}
