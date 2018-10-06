@@ -40,6 +40,7 @@ h1 {
   font-family: $font-title;
   font-size: rem(24);
   line-height: rem(36);
+  letter-spacing: 0;
   color: $black;
 
   @include breakpoint(md) {

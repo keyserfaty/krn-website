@@ -1,0 +1,13 @@
+.top-line {
+  background-image: linear-gradient(-90deg, #FA709A 0%, #FEE140 100%);
+  height: rem(7);
+  width: 100%;
+}
+
+.lang {
+  margin-top: rem(16);
+  
+  @include breakpoint(md) {
+    margin-left: rem(-50);
+  }
+}

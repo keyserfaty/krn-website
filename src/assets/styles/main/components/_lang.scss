@@ -1,0 +1,24 @@
+.lang {
+  &-items {
+    display: flex;
+
+    .item {
+      text-transform: uppercase;
+      font-size: rem(9);
+      letter-spacing: rem(0.5);
+      line-height: rem(12);
+      padding: rem(5.5) rem(4);
+      cursor: pointer;
+
+      &:last-child {
+        margin-left: rem(2);
+      }
+
+      &.active {
+        color: $black;
+        border: rem(1.5) $black solid;
+        border-radius: rem(6);
+      }
+    }
+  }
+}

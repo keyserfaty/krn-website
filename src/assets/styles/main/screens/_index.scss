@@ -1,3 +1,5 @@
+@import 'menu';
+
 .hero {
   margin-top: rem(218);
   margin-bottom: rem(160);
@@ -19,11 +21,9 @@
     position: absolute;
     bottom: rem(24);
     width: rem(128);
-    display: flex;
-    justify-content: space-between;
 
     @include breakpoint(md) {
-      position: relative;
+      position: initial;
     }
   }
 
@@ -41,39 +41,6 @@
 
       @include breakpoint(md) {
         margin-bottom: 0;
-      }
-
-      .post {
-        display: flex;
-        margin-bottom: rem(24);
-
-        .date {
-          margin-right: rem(18);
-
-          @include breakpoint(md) {
-            margin-right: rem(39);
-          }
-
-          .month {
-            text-transform: lowercase;
-          }
-        }
-
-        .content {
-          .title {
-            margin-bottom: rem(8);
-
-            @include breakpoint(md) {
-              margin-bottom: rem(33);
-            }
-          }
-          
-          .reading-time {
-            text-transform: uppercase;
-            font-size: rem(9);
-            line-height: rem(13);
-          }
-        }
       }
     }
   }
