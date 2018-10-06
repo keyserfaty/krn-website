@@ -7,7 +7,7 @@
 .lang {
   margin-top: rem(16);
   
-  @include breakpoint(md) {
+  @include breakpoint(lg) {
     margin-left: rem(-50);
   }
 }
